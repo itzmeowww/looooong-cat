@@ -8,13 +8,12 @@
 		const url = `${baseUrl}${head}_${catid}`;
 		const shareData = {
 			title: 'LOOOOONG CAT',
-			text: 'Check out this looooong cat',
 			url: url
 		};
 		// console.log(shareData)
 		if (!navigator.canShare && navigator.canShare(shareData)) {
 			navigator.clipboard.writeText(url).then(() => {
-				alert('Copied to clipboard');
+				// alert('Copied to clipboard');
 			});
 		} else {
 			navigator.share(shareData);
