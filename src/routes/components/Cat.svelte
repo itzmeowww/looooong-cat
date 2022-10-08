@@ -52,7 +52,12 @@
 
 <section class="w-screen">
 	<main class="w-full  min-h-screen max-w-lg mx-auto flex flex-col items-center bg-transparent">
-		<div class="mt-16 mb-8 font-bold text-2xl text-center">LOOOOONG CAT</div>
+		<div class="mt-16 font-bold text-2xl text-center">LOOOOONG CAT</div>
+		<div class="text-sm text-slate-600 mb-8">
+			illustration by <a class="underline" href="https://www.instagram.com/partsofpim/"
+				>@partsofpim</a
+			>
+		</div>
 
 		<div class="flex flex-col bg-red max-w-sm items-center ">
 			<CatHead id={head} />
@@ -70,5 +75,60 @@
 			>
 		{/if}
 	</main>
-	<div class="w-screen h-screen fixed -z-50 top-0 bg-gradient-to-b from-blue-200 to-purple-300" />
+	<div class="w-screen h-screen fixed -z-50 top-0 bg-gradient-to-b from-blue-200 to-purple-300">
+		<div
+			class="h-6 w-32 ml-4 rounded-3xl top-16 bg-gradient-to-r from-white to-slate-100 absolute move-left-right"
+		/>
+
+		<div
+			class="h-8 w-24 mr-4 rounded-3xl top-36 bg-gradient-to-l from-white to-slate-100 absolute move-right-left"
+		/>
+
+		<div
+			class="h-7 w-12 ml-12 rounded-3xl top-72 bg-gradient-to-r from-white to-slate-100 absolute move-left-right-slow"
+		/>
+
+		<!-- <div class="w-10 h-48 bottom-0 left-12  bg-slate-400/60 rounded-sm absolute" /> -->
+	</div>
 </section>
+
+<style>
+	@keyframes move-l-r {
+		from {
+			left: -100px;
+		}
+		to {
+			left: 120vw;
+		}
+	}
+
+	@keyframes move-r-l {
+		from {
+			right: -100px;
+		}
+		to {
+			right: 120vw;
+		}
+	}
+	.move-left-right {
+		animation-name: move-l-r;
+		animation-iteration-count: infinite;
+		animation-timing-function: ease-in-out;
+		animation-direction: alternate-reverse;
+		animation-duration: 20s;
+	}
+	.move-left-right-slow {
+		animation-name: move-l-r;
+		animation-iteration-count: infinite;
+		animation-timing-function: ease-in-out;
+		animation-direction: alternate-reverse;
+		animation-duration: 25s;
+	}
+	.move-right-left {
+		animation-name: move-r-l;
+		animation-iteration-count: infinite;
+		animation-timing-function: ease-in-out;
+		animation-direction: alternate-reverse;
+		animation-duration: 20s;
+	}
+</style>
