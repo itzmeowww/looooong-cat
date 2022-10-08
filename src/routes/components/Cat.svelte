@@ -44,6 +44,8 @@
 	<meta property="twitter:title" content="LOOOOONG CAT" />
 	<meta property="twitter:description" content="Have you ever seen a cat that LOOOOONG" />
 	<meta property="twitter:image" content="https://looooongcat.vercel.app/preview.svg" />
+
+	<link rel="icon" href="https://looooongcat.vercel.app/preview.svg" />
 </svelte:head>
 
 <svelte:window bind:scrollY={y} bind:innerHeight={h} />
