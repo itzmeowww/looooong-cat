@@ -26,7 +26,24 @@
 
 <svelte:head>
 	<title>LOOOOONG CAT</title>
+	<!-- Primary Meta Tags -->
+	<title>LOOOOONG CAT</title>
+	<meta name="title" content="LOOOOONG CAT" />
 	<meta name="description" content="Have you ever seen a cat that LOOOOONG" />
+
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://looooongcat.vercel.app/" />
+	<meta property="og:title" content="LOOOOONG CAT" />
+	<meta property="og:description" content="Have you ever seen a cat that LOOOOONG" />
+	<meta property="og:image" content="https://looooongcat.vercel.app/preview.svg" />
+
+	<!-- Twitter -->
+	<meta property="twitter:card" content="summary_large_image" />
+	<meta property="twitter:url" content="https://looooongcat.vercel.app/" />
+	<meta property="twitter:title" content="LOOOOONG CAT" />
+	<meta property="twitter:description" content="Have you ever seen a cat that LOOOOONG" />
+	<meta property="twitter:image" content="https://looooongcat.vercel.app/preview.svg" />
 </svelte:head>
 
 <svelte:window bind:scrollY={y} bind:innerHeight={h} />
