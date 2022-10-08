@@ -1,21 +1,24 @@
 <script lang="ts">
-	import CatBlock from './CatBlock.svelte';
+	import randomChar from '../../utils/randomChar';
+	import CatBody from './CatBody.svelte';
+	import CatHead from './CatHead.svelte';
 	import Footer from './Footer.svelte';
-	export let cats: string[] = [];
+	export let body: string[] = [];
+	export let head: string = '';
 
 	export const max_id: number = 3;
 	export let freeze: boolean = false;
 	let y: number;
 	let h: number;
 	let threshold = 150;
+
+	if (head == '') head = randomChar(2);
+
 	$: {
 		// console.log(h + y, 112 + cats.length * 192);
 		if (!freeze)
-			while (h + y > 112 + cats.length * 192 - threshold) {
-				cats = [
-					...cats,
-					String.fromCharCode('A'.charCodeAt(0) + Math.floor(Math.random() * max_id))
-				];
+			while (h + y > 112 + body.length * 192 - threshold) {
+				body = [...body, randomChar(max_id)];
 				// console.log(cats);
 			}
 	}
@@ -33,18 +36,18 @@
 		<div class="mt-16 mb-8 font-bold text-2xl text-center">LOOOOONG CAT</div>
 
 		<div class="flex flex-col bg-red max-w-sm items-center ">
-			<CatBlock id={'head0'} />
-			{#each cats as cat}
-				<CatBlock id={cat} />
+			<CatHead id={head} />
+			{#each body as peice}
+				<CatBody id={peice} />
 			{/each}
 		</div>
-		<Footer {cats} />
+		<Footer {head} {body} />
 
 		{#if freeze}
 			<a
-				class="z-10 mt-12 mb-20 bg-white hover:bg-slate-100 px-4 py-1 rounded-md shadow-md  max-w-md"
+				class="z-10 mt-10 mb-20 bg-white hover:bg-slate-100 px-4 py-1 rounded-md shadow-md  max-w-md"
 				href="/"
-				sveltekit:prefetch>create your own cat</a
+				sveltekit:prefetch>create your looooong cat</a
 			>
 		{/if}
 	</main>
