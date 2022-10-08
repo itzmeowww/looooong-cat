@@ -12,4 +12,4 @@
 	});
 </script>
 
-<Cat {cats} />
+<Cat {cats} freeze />
