@@ -21,6 +21,10 @@
 			}
 		});
 
+		if (charCount > 1) {
+			catid += charCount.toString();
+		}
+
 		const url = `${baseUrl}/${head}_${catid}`;
 		const shareData = {
 			title: 'LOOOOONG CAT',
