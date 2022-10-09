@@ -2,7 +2,7 @@
 	export let body: string[];
 	export let head: string;
 	let handleShare = () => {
-		const baseUrl = window.location.href;
+		const baseUrl = window.location.origin;
 		const catid = body.join('');
 
 		const url = `${baseUrl}${head}_${catid}`;
