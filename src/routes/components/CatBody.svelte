@@ -1,20 +1,29 @@
 <script lang="ts">
 	export let id: string;
-	import BA from './cats/body/BA.svelte';
+	import Ba from './cats/body/BA.svelte';
+	import Bb from './cats/body/BB.svelte';
+	import Bc from './cats/body/BC.svelte';
+	import Bd from './cats/body/BD.svelte';
 </script>
 
 <section>
 	<div class="h-48 w-48">
 		{#if id == 'A'}
 			<div class="w-full h-full">
-				<BA />
+				<Ba />
 			</div>
 		{:else if id == 'B'}
-			<div class="w-full h-full bg-green-300" />
+			<div class="w-full h-full">
+				<Bb />
+			</div>
 		{:else if id == 'C'}
-			<div class="w-full h-full bg-blue-300" />
-		{:else}
-			<div class="w-full h-full" />
+			<div class="w-full h-full">
+				<Bc />
+			</div>
+		{:else if id == 'D'}
+			<div class="w-full h-full">
+				<Bd />
+			</div>
 		{/if}
 	</div>
 </section>

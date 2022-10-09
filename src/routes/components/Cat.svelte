@@ -6,19 +6,20 @@
 	export let body: string[] = [];
 	export let head: string = '';
 
-	export const max_id: number = 3;
+	export const max_body_id: number = 4;
+	export const max_head_id: number = 4;
 	export let freeze: boolean = false;
 	let y: number;
 	let h: number;
 	let threshold = 150;
 
-	if (head == '') head = randomChar(2);
+	if (head == '') head = randomChar(max_head_id);
 
 	$: {
 		// console.log(h + y, 112 + cats.length * 192);
 		if (!freeze)
 			while (h + y > 112 + body.length * 192 - threshold) {
-				body = [...body, randomChar(max_id)];
+				body = [...body, randomChar(max_body_id)];
 				// console.log(cats);
 			}
 	}
@@ -58,7 +59,9 @@
 				>@partsofpim</a
 			>
 		</div>
-
+		<!-- <div class="fixed right-2 top-2">
+			{1 + body.length}
+		</div> -->
 		<div class="flex flex-col bg-red max-w-sm items-center ">
 			<CatHead id={head} />
 			{#each body as peice}
@@ -70,8 +73,7 @@
 		{#if freeze}
 			<a
 				class="z-10 mt-10 mb-20 bg-white hover:bg-slate-100 px-4 py-1 rounded-md shadow-md  max-w-md"
-				href="/"
-				sveltekit:prefetch>create your looooong cat</a
+				href="/">create your looooong cat</a
 			>
 		{/if}
 	</main>
