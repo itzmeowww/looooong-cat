@@ -5,7 +5,7 @@
 		const baseUrl = window.location.origin;
 		const catid = body.join('');
 
-		const url = `${baseUrl}${head}_${catid}`;
+		const url = `${baseUrl}/${head}_${catid}`;
 		const shareData = {
 			title: 'LOOOOONG CAT',
 			url: url
