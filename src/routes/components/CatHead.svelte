@@ -7,21 +7,21 @@
 </script>
 
 <section>
-	<div class="h-48 w-48">
+	<div class="h-32 w-48">
 		{#if id == 'A'}
-			<div class="w-full h-full">
+			<div class="h-full">
 				<Ha />
 			</div>
 		{:else if id == 'B'}
-			<div class="w-full h-full">
+			<div class="h-full">
 				<Hb />
 			</div>
 		{:else if id == 'C'}
-			<div class="w-full h-full">
+			<div class="h-full">
 				<Hc />
 			</div>
 		{:else if id == 'D'}
-			<div class="w-full h-full">
+			<div class="h-full">
 				<Hd />
 			</div>
 		{/if}

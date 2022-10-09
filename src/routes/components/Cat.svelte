@@ -18,7 +18,7 @@
 	$: {
 		// console.log(h + y, 112 + cats.length * 192);
 		if (!freeze)
-			while (h + y > 112 + body.length * 192 - threshold) {
+			while (h + y > 112 + body.length * 128 - threshold) {
 				body = [...body, randomChar(max_body_id)];
 				// console.log(cats);
 			}
