@@ -1,9 +1,25 @@
 <script lang="ts">
+	import Cat from './Cat.svelte';
+
 	export let body: string[];
 	export let head: string;
 	let handleShare = () => {
 		const baseUrl = window.location.origin;
-		const catid = body.join('');
+		let catid = '';
+		let lastChar = '';
+		let charCount = 1;
+		body.forEach((peice: string) => {
+			if (lastChar != peice) {
+				if (charCount > 1) {
+					catid += charCount.toString();
+					charCount = 1;
+				}
+				lastChar = peice;
+				catid += lastChar;
+			} else {
+				charCount = charCount + 1;
+			}
+		});
 
 		const url = `${baseUrl}/${head}_${catid}`;
 		const shareData = {
@@ -11,6 +27,7 @@
 			url: url
 		};
 		// console.log(shareData)
+		console.log(shareData);
 		if (!navigator.canShare && navigator.canShare(shareData)) {
 			navigator.clipboard.writeText(url).then(() => {
 				// alert('Copied to clipboard');

@@ -15,11 +15,27 @@
 		head = headId[0];
 	}
 
+	let lastChar = '';
+	let charCount = '';
 	bodyId.split('').forEach((x: string) => {
-		if ('A'.charCodeAt(0) <= x.charCodeAt(0) && x.charCodeAt(0) <= 'A'.charCodeAt(0) + max_body) {
+		if ('0'.charCodeAt(0) <= x.charCodeAt(0) && x.charCodeAt(0) <= '9'.charCodeAt(0)) {
+			charCount += x;
+		} else if (
+			'A'.charCodeAt(0) <= x.charCodeAt(0) &&
+			x.charCodeAt(0) <= 'A'.charCodeAt(0) + max_body
+		) {
+			for (let i = 0; i < parseInt(charCount); i++) {
+				body.push(lastChar);
+			}
+			charCount = '';
+			lastChar = x;
 			body.push(x);
 		}
 	});
+
+	for (let i = 0; i < parseInt(charCount); i++) {
+		body.push(lastChar);
+	}
 </script>
 
 <Cat {head} {body} freeze />
