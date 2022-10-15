@@ -3,6 +3,7 @@
 	import CatBody from './CatBody.svelte';
 	import CatHead from './CatHead.svelte';
 	import Footer from './Footer.svelte';
+	import { afterUpdate } from 'svelte';
 
 	export let body: string[] = [];
 	export let head: string = '';
@@ -24,8 +25,14 @@
 			selected_value.charCodeAt(0) <= 'A'.charCodeAt(0) + max_body_id
 		) {
 			body = [...body, selected_value.charAt(0)];
+			window.scrollBy({
+				top: 128,
+				left: 0,
+				behavior: 'smooth'
+			});
 		}
 	};
+
 	$: {
 		// console.log(h + y, 112 + cats.length * 192);
 		if (!freeze && !adding)
@@ -97,15 +104,15 @@
 			<div class="opacity-50">
 				<CatBody id={selected} />
 			</div>
-			<div class="py-6 z-10">
-				<button on:click={beforeSelected} class="w-7 h-7 bg-white rounded-lg">-</button>
+			<div class="py-6 z-10 h-32 mb-12" id="adding-console">
+				<button on:click={beforeSelected} class="w-7 h-7 bg-white rounded-lg">{`⬅️`}</button>
 				<!-- <input type="text"  name="" id="" class="w-8 h-8 text-center" bind:value={selected} /> -->
 
 				<button
 					on:click={() => addCatBlockFromSelected(selected)}
 					class="bg-white px-4 py-1 rounded-md h-8">add {selected}</button
 				>
-				<button on:click={afterSelected} class="w-7 h-7 bg-white rounded-lg">+</button>
+				<button on:click={afterSelected} class="w-7 h-7 bg-white rounded-lg">{`➡️`}</button>
 			</div>
 		{/if}
 		{#if freeze}
