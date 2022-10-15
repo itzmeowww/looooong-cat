@@ -1,8 +1,7 @@
 <script lang="ts">
 	import Cat from '../components/Cat.svelte';
 	import { page } from '$app/stores';
-	let max_body: number = 8;
-	let max_head: number = 8;
+	import { max_body_id, max_head_id } from '../components/cats/catData';
 	const body: string[] = [];
 	let head = '';
 	const id: string = $page.params.id;
@@ -10,7 +9,7 @@
 	const bodyId = id.split('_')[1];
 	if (
 		'A'.charCodeAt(0) <= headId.charCodeAt(0) &&
-		headId.charCodeAt(0) <= 'A'.charCodeAt(0) + max_head
+		headId.charCodeAt(0) <= 'A'.charCodeAt(0) + max_head_id
 	) {
 		head = headId[0];
 	}
@@ -22,7 +21,7 @@
 			charCount += x;
 		} else if (
 			'A'.charCodeAt(0) <= x.charCodeAt(0) &&
-			x.charCodeAt(0) <= 'A'.charCodeAt(0) + max_body
+			x.charCodeAt(0) <= 'A'.charCodeAt(0) + max_body_id
 		) {
 			for (let i = 0; i < parseInt(charCount); i++) {
 				body.push(lastChar);

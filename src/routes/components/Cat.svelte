@@ -7,8 +7,8 @@
 	export let body: string[] = [];
 	export let head: string = '';
 
-	export const max_body_id: number = 12;
-	export const max_head_id: number = 14;
+	import { max_body_id, max_head_id } from './cats/catData';
+
 	export let freeze: boolean = false;
 	export let adding: boolean = false;
 	let y: number;
