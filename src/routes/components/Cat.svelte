@@ -3,13 +3,12 @@
 	import CatBody from './CatBody.svelte';
 	import CatHead from './CatHead.svelte';
 	import Footer from './Footer.svelte';
-	import { afterUpdate } from 'svelte';
 
 	export let body: string[] = [];
 	export let head: string = '';
 
-	export const max_body_id: number = 8;
-	export const max_head_id: number = 8;
+	export const max_body_id: number = 12;
+	export const max_head_id: number = 14;
 	export let freeze: boolean = false;
 	export let adding: boolean = false;
 	let y: number;

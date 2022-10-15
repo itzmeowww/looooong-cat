@@ -1,9 +1,13 @@
 <script lang="ts">
 	export let id: string;
-	import Bba from './cats/body/Bba.svelte';
-	import Bbb from './cats/body/Bbb.svelte';
-	import Bbc from './cats/body/Bbc.svelte';
-	import Bbd from './cats/body/Bbd.svelte';
+	import Bbla from './cats/body/Bbla.svelte';
+	import Bblb from './cats/body/Bblb.svelte';
+	import Bblc from './cats/body/Bblc.svelte';
+	import Bbld from './cats/body/Bbld.svelte';
+	import Bbra from './cats/body/Bbra.svelte';
+	import Bbrb from './cats/body/Bbrb.svelte';
+	import Bbrc from './cats/body/Bbrc.svelte';
+	import Bbrd from './cats/body/Bbrd.svelte';
 	import Bwa from './cats/body/Bwa.svelte';
 	import Bwb from './cats/body/Bwb.svelte';
 	import Bwc from './cats/body/Bwc.svelte';
@@ -14,19 +18,19 @@
 	<div class="h-32 w-48">
 		{#if id == 'A'}
 			<div class="h-full">
-				<Bba />
+				<Bbla />
 			</div>
 		{:else if id == 'B'}
 			<div class="h-full">
-				<Bbb />
+				<Bblb />
 			</div>
 		{:else if id == 'C'}
 			<div class="h-full">
-				<Bbc />
+				<Bblc />
 			</div>
 		{:else if id == 'D'}
 			<div class="h-full">
-				<Bbd />
+				<Bbld />
 			</div>
 		{:else if id == 'E'}
 			<div class="h-full">
@@ -43,6 +47,22 @@
 		{:else if id == 'H'}
 			<div class="h-full">
 				<Bwd />
+			</div>
+		{:else if id == 'I'}
+			<div class="h-full">
+				<Bbra />
+			</div>
+		{:else if id == 'J'}
+			<div class="h-full">
+				<Bbrb />
+			</div>
+		{:else if id == 'K'}
+			<div class="h-full">
+				<Bbrc />
+			</div>
+		{:else if id == 'L'}
+			<div class="h-full">
+				<Bbrd />
 			</div>
 		{/if}
 	</div>
