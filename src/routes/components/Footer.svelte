@@ -1,6 +1,5 @@
 <script lang="ts">
-	import Cat from './Cat.svelte';
-
+	export let adding: boolean = false;
 	export let body: string[];
 	export let head: string;
 	let handleShare = () => {
@@ -43,5 +42,12 @@
 </script>
 
 <div class="z-10 fixed bottom-0 w-screen max-w-md mx-auto flex items-center justify-end">
-	<button on:click={handleShare} class=" w-12 h-12 m-6 bg-white rounded-lg shadow-md">Sh</button>
+	<div class="flex flex-col m-6 gap-6">
+		{#if !adding}
+			<a href="/create">
+				<button class=" w-12 h-12  bg-white rounded-lg shadow-md">Ed</button>
+			</a>
+		{/if}
+		<button on:click={handleShare} class=" w-12 h-12  bg-white rounded-lg shadow-md">Sh</button>
+	</div>
 </div>

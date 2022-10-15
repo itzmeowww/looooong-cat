@@ -10,20 +10,45 @@
 	export const max_body_id: number = 8;
 	export const max_head_id: number = 8;
 	export let freeze: boolean = false;
+	export let adding: boolean = false;
 	let y: number;
 	let h: number;
 	let threshold = 150;
 
-	if (head == '') head = randomChar(max_head_id);
+	let selected = 'A';
 
+	if (head == '') head = randomChar(max_head_id);
+	const addCatBlockFromSelected = (selected_value: string) => {
+		if (
+			'A'.charCodeAt(0) <= selected_value.charCodeAt(0) &&
+			selected_value.charCodeAt(0) <= 'A'.charCodeAt(0) + max_body_id
+		) {
+			body = [...body, selected_value.charAt(0)];
+		}
+	};
 	$: {
 		// console.log(h + y, 112 + cats.length * 192);
-		if (!freeze)
+		if (!freeze && !adding)
 			while (h + y > 112 + body.length * 128 - threshold) {
 				body = [...body, randomChar(max_body_id)];
 				// console.log(cats);
 			}
 	}
+
+	const beforeSelected = () => {
+		let newId = selected.charCodeAt(0) - 1;
+		if (newId < 'A'.charCodeAt(0)) {
+			newId = 'A'.charCodeAt(0) + max_body_id - 1;
+		}
+		selected = String.fromCharCode(newId);
+	};
+	const afterSelected = () => {
+		let newId = selected.charCodeAt(0) + 1;
+		if (newId > 'A'.charCodeAt(0) + max_body_id - 1) {
+			newId = 'A'.charCodeAt(0);
+		}
+		selected = String.fromCharCode(newId);
+	};
 </script>
 
 <svelte:head>
@@ -67,8 +92,22 @@
 				<CatBody id={peice} />
 			{/each}
 		</div>
-		<Footer {head} {body} />
+		<Footer {head} {body} {adding} />
+		{#if adding}
+			<div class="opacity-50">
+				<CatBody id={selected} />
+			</div>
+			<div class="py-6 z-10">
+				<button on:click={beforeSelected} class="w-7 h-7 bg-white rounded-lg">-</button>
+				<!-- <input type="text"  name="" id="" class="w-8 h-8 text-center" bind:value={selected} /> -->
 
+				<button
+					on:click={() => addCatBlockFromSelected(selected)}
+					class="bg-white px-4 py-1 rounded-md h-8">add {selected}</button
+				>
+				<button on:click={afterSelected} class="w-7 h-7 bg-white rounded-lg">+</button>
+			</div>
+		{/if}
 		{#if freeze}
 			<a
 				class="z-10 mt-10 mb-20 bg-white hover:bg-slate-100 px-4 py-1 rounded-md shadow-md  max-w-md"
