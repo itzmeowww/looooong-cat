@@ -1,28 +1,48 @@
 <script lang="ts">
 	export let id: string;
-	import Ba from './cats/body/BA.svelte';
-	import Bb from './cats/body/BB.svelte';
-	import Bc from './cats/body/BC.svelte';
-	import Bd from './cats/body/BD.svelte';
+	import Bba from './cats/body/Bba.svelte';
+	import Bbb from './cats/body/Bbb.svelte';
+	import Bbc from './cats/body/Bbc.svelte';
+	import Bbd from './cats/body/Bbd.svelte';
+	import Bwa from './cats/body/Bwa.svelte';
+	import Bwb from './cats/body/Bwb.svelte';
+	import Bwc from './cats/body/Bwc.svelte';
+	import Bwd from './cats/body/Bwd.svelte';
 </script>
 
 <section>
 	<div class="h-32 w-48">
 		{#if id == 'A'}
 			<div class="h-full">
-				<Ba />
+				<Bba />
 			</div>
 		{:else if id == 'B'}
 			<div class="h-full">
-				<Bb />
+				<Bbb />
 			</div>
 		{:else if id == 'C'}
 			<div class="h-full">
-				<Bc />
+				<Bbc />
 			</div>
 		{:else if id == 'D'}
 			<div class="h-full">
-				<Bd />
+				<Bbd />
+			</div>
+		{:else if id == 'E'}
+			<div class="h-full">
+				<Bwa />
+			</div>
+		{:else if id == 'F'}
+			<div class="h-full">
+				<Bwb />
+			</div>
+		{:else if id == 'G'}
+			<div class="h-full">
+				<Bwc />
+			</div>
+		{:else if id == 'H'}
+			<div class="h-full">
+				<Bwd />
 			</div>
 		{/if}
 	</div>

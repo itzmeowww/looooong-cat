@@ -3,11 +3,12 @@
 	import CatBody from './CatBody.svelte';
 	import CatHead from './CatHead.svelte';
 	import Footer from './Footer.svelte';
+
 	export let body: string[] = [];
 	export let head: string = '';
 
-	export const max_body_id: number = 4;
-	export const max_head_id: number = 4;
+	export const max_body_id: number = 8;
+	export const max_head_id: number = 8;
 	export let freeze: boolean = false;
 	let y: number;
 	let h: number;
@@ -45,8 +46,6 @@
 	<meta property="twitter:title" content="LOOOOONG CAT" />
 	<meta property="twitter:description" content="Have you ever seen a cat that LOOOOONG" />
 	<meta property="twitter:image" content="https://looooongcat.vercel.app/preview.svg" />
-
-	<link rel="icon" href="https://looooongcat.vercel.app/preview.svg" />
 </svelte:head>
 
 <svelte:window bind:scrollY={y} bind:innerHeight={h} />

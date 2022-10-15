@@ -1,28 +1,48 @@
 <script lang="ts">
 	export let id: string;
-	import Ha from './cats/head/HA.svelte';
-	import Hb from './cats/head/HB.svelte';
-	import Hc from './cats/head/HC.svelte';
-	import Hd from './cats/head/HD.svelte';
+	import Hba from './cats/head/Hba.svelte';
+	import Hbb from './cats/head/Hbc.svelte';
+	import Hbc from './cats/head/Hbb.svelte';
+	import Hbd from './cats/head/Hbd.svelte';
+	import Hwa from './cats/head/Hwa.svelte';
+	import Hwb from './cats/head/Hwb.svelte';
+	import Hwc from './cats/head/Hwc.svelte';
+	import Hwd from './cats/head/Hwd.svelte';
 </script>
 
 <section>
 	<div class="h-32 w-48">
 		{#if id == 'A'}
 			<div class="h-full">
-				<Ha />
+				<Hba />
 			</div>
 		{:else if id == 'B'}
 			<div class="h-full">
-				<Hb />
+				<Hbb />
 			</div>
 		{:else if id == 'C'}
 			<div class="h-full">
-				<Hc />
+				<Hbc />
 			</div>
 		{:else if id == 'D'}
 			<div class="h-full">
-				<Hd />
+				<Hbd />
+			</div>
+		{:else if id == 'E'}
+			<div class="h-full">
+				<Hwa />
+			</div>
+		{:else if id == 'F'}
+			<div class="h-full">
+				<Hwb />
+			</div>
+		{:else if id == 'G'}
+			<div class="h-full">
+				<Hwc />
+			</div>
+		{:else if id == 'H'}
+			<div class="h-full">
+				<Hwd />
 			</div>
 		{/if}
 	</div>
