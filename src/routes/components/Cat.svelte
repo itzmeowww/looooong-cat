@@ -56,6 +56,30 @@
 		}
 		selected = String.fromCharCode(newId);
 	};
+
+	const allBodyId = [];
+	for (let i = 0; i < max_body_id; i++) {
+		allBodyId.push(String.fromCharCode('A'.charCodeAt(0) + i));
+	}
+	const handleScroll = (e: any) => {
+		let scrollLeft = e.target.scrollLeft;
+		let newId = 'A';
+		let newIdIdx = 0;
+		for (let i = 1; i < max_body_id; i++) {
+			if (scrollLeft >= 192 * i - 192 / 2) {
+				newIdIdx = i;
+				newId = String.fromCharCode('A'.charCodeAt(0) + i);
+			}
+		}
+		if (selected != newId) {
+			e.target.scroll({
+				top: 0,
+				left: newIdIdx * 192,
+				behavior: 'smooth'
+			});
+		}
+		selected = newId;
+	};
 </script>
 
 <svelte:head>
@@ -101,8 +125,10 @@
 		</div>
 		<Footer {head} {body} {adding} />
 		{#if adding}
-			<div class="opacity-50">
-				<CatBody id={selected} />
+			<div class="opacity-50 flex flex-row overflow-auto max-w-full w-48 " on:scroll={handleScroll}>
+				{#each ['A', 'B', 'C', 'D', 'E', 'F', 'G'] as id}
+					<CatBody {id} />
+				{/each}
 			</div>
 			<div class="py-6 z-10 h-32 mb-12" id="adding-console">
 				<button on:click={beforeSelected} class="w-7 h-7 bg-white rounded-lg">{`⬅️`}</button>
