@@ -1,8 +1,8 @@
 <script lang="ts">
 	import Cat from '../components/Cat.svelte';
 	import { page } from '$app/stores';
-	let max_body: number = 3;
-	let max_head: number = 2;
+	let max_body: number = 8;
+	let max_head: number = 8;
 	const body: string[] = [];
 	let head = '';
 	const id: string = $page.params.id;
