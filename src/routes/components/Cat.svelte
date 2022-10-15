@@ -47,7 +47,7 @@
 		if (newId < 'A'.charCodeAt(0)) {
 			newId = 'A'.charCodeAt(0) + max_body_id - 1;
 		}
-		scrollToId(String.fromCharCode(newId));
+		scrollToId(String.fromCharCode(newId), false);
 	};
 
 	const afterSelected = () => {
@@ -55,15 +55,15 @@
 		if (newId > 'A'.charCodeAt(0) + max_body_id - 1) {
 			newId = 'A'.charCodeAt(0);
 		}
-		scrollToId(String.fromCharCode(newId));
+		scrollToId(String.fromCharCode(newId), false);
 	};
 
-	const scrollToId = (id: string) => {
+	const scrollToId = (id: string, smooth: boolean) => {
 		if (selected != id) {
 			ScrollingElem.scroll({
 				top: 0,
-				left: (id.charCodeAt(0) - 'A'.charCodeAt(0)) * 192
-				// behavior: 'smooth'
+				left: (id.charCodeAt(0) - 'A'.charCodeAt(0)) * 192,
+				behavior: smooth ? 'smooth' : 'auto'
 			});
 			selected = id;
 		}
@@ -81,7 +81,7 @@
 				newId = String.fromCharCode('A'.charCodeAt(0) + i);
 			}
 		}
-		scrollToId(newId);
+		scrollToId(newId, true);
 	};
 	let ScrollingElem: Element;
 </script>
