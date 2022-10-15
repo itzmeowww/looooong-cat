@@ -47,39 +47,43 @@
 		if (newId < 'A'.charCodeAt(0)) {
 			newId = 'A'.charCodeAt(0) + max_body_id - 1;
 		}
-		selected = String.fromCharCode(newId);
+		scrollToId(String.fromCharCode(newId));
 	};
+
 	const afterSelected = () => {
 		let newId = selected.charCodeAt(0) + 1;
 		if (newId > 'A'.charCodeAt(0) + max_body_id - 1) {
 			newId = 'A'.charCodeAt(0);
 		}
-		selected = String.fromCharCode(newId);
+		scrollToId(String.fromCharCode(newId));
 	};
 
-	const allBodyId = [];
+	const scrollToId = (id: string) => {
+		if (selected != id) {
+			ScrollingElem.scroll({
+				top: 0,
+				left: (id.charCodeAt(0) - 'A'.charCodeAt(0)) * 192
+				// behavior: 'smooth'
+			});
+			selected = id;
+		}
+	};
+
+	const allBodyId: string[] = [];
 	for (let i = 0; i < max_body_id; i++) {
 		allBodyId.push(String.fromCharCode('A'.charCodeAt(0) + i));
 	}
 	const handleScroll = (e: any) => {
 		let scrollLeft = e.target.scrollLeft;
 		let newId = 'A';
-		let newIdIdx = 0;
 		for (let i = 1; i < max_body_id; i++) {
 			if (scrollLeft >= 192 * i - 192 / 2) {
-				newIdIdx = i;
 				newId = String.fromCharCode('A'.charCodeAt(0) + i);
 			}
 		}
-		if (selected != newId) {
-			e.target.scroll({
-				top: 0,
-				left: newIdIdx * 192,
-				behavior: 'smooth'
-			});
-		}
-		selected = newId;
+		scrollToId(newId);
 	};
+	let ScrollingElem: Element;
 </script>
 
 <svelte:head>
@@ -125,8 +129,12 @@
 		</div>
 		<Footer {head} {body} {adding} />
 		{#if adding}
-			<div class="opacity-50 flex flex-row overflow-auto max-w-full w-48 " on:scroll={handleScroll}>
-				{#each ['A', 'B', 'C', 'D', 'E', 'F', 'G'] as id}
+			<div
+				class="opacity-50 flex flex-row overflow-auto max-w-full w-48 "
+				bind:this={ScrollingElem}
+				on:scroll={handleScroll}
+			>
+				{#each allBodyId as id}
 					<CatBody {id} />
 				{/each}
 			</div>
