@@ -45,14 +45,12 @@
 </script>
 
 <div class="z-10 fixed bottom-0 w-screen max-w-md mx-auto flex items-center justify-end">
-	<div class="flex flex-col m-6 gap-6">
-		{#if !adding}
+	<div class="flex flex-col m-6 gap-1">
+		<!-- {#if !adding}
 			<a href="/create">
-				<button class=" w-12 h-12  bg-white rounded-lg shadow-md"><Edit /></button>
+				<button class=" w-14 h-14 rounded-lg hover:scale-105"><Edit /></button>
 			</a>
-		{/if}
-		<button on:click={handleShare} class=" w-12 h-12  bg-white rounded-lg shadow-md"
-			><Share /></button
-		>
+		{/if} -->
+		<button on:click={handleShare} class=" w-14 h-14 rounded-lg hover:scale-105"><Share /></button>
 	</div>
 </div>

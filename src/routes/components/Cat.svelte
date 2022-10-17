@@ -143,8 +143,9 @@
 
 				<button
 					on:click={() => addCatBlockFromSelected(selected)}
-					class="bg-white px-4 py-1 rounded-md h-8">add {selected}</button
-				>
+					class="bg-white px-2 py-1 rounded-md h-8 mx-2"
+					>add
+				</button>
 				<button on:click={afterSelected} class="w-7 h-7 bg-white rounded-lg">{`➡️`}</button>
 			</div>
 		{/if}
