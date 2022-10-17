@@ -1,4 +1,7 @@
 <script lang="ts">
+	import Edit from './icons/Edit.svelte';
+	import Share from './icons/Share.svelte';
+
 	export let adding: boolean = false;
 	export let body: string[];
 	export let head: string;
@@ -45,9 +48,11 @@
 	<div class="flex flex-col m-6 gap-6">
 		{#if !adding}
 			<a href="/create">
-				<button class=" w-12 h-12  bg-white rounded-lg shadow-md">Ed</button>
+				<button class=" w-12 h-12  bg-white rounded-lg shadow-md"><Edit /></button>
 			</a>
 		{/if}
-		<button on:click={handleShare} class=" w-12 h-12  bg-white rounded-lg shadow-md">Sh</button>
+		<button on:click={handleShare} class=" w-12 h-12  bg-white rounded-lg shadow-md"
+			><Share /></button
+		>
 	</div>
 </div>
