@@ -8,6 +8,7 @@
 	export let head: string = '';
 
 	import { max_body_id, max_head_id } from './cats/catData';
+	import Background from './Background.svelte';
 
 	export let freeze: boolean = false;
 	export let adding: boolean = false;
@@ -156,8 +157,15 @@
 			>
 		{/if}
 	</main>
-	<div class="w-screen h-screen fixed -z-50 top-0 bg-gradient-to-b from-blue-200 to-purple-300">
-		<div
+	<div
+		class="w-screen h-screen flex flex-col items-center fixed -z-50 top-0"
+		style="background-color: #FCF0E8;"
+	>
+		<!-- bg-gradient-to-b from-blue-200 to-purple-300 -->
+		<div class="w-full bottom-0 absolute">
+			<Background />
+		</div>
+		<!-- <div
 			class="h-6 w-32 ml-4 rounded-3xl top-16 bg-gradient-to-r from-white to-slate-100 absolute move-left-right"
 		/>
 
@@ -167,14 +175,14 @@
 
 		<div
 			class="h-7 w-12 ml-12 rounded-3xl top-72 bg-gradient-to-r from-white to-slate-100 absolute move-left-right-slow"
-		/>
+		/> -->
 
 		<!-- <div class="w-10 h-48 bottom-0 left-12  bg-slate-400/60 rounded-sm absolute" /> -->
 	</div>
 </section>
 
 <style>
-	@keyframes move-l-r {
+	/* @keyframes move-l-r {
 		from {
 			left: -100px;
 		}
@@ -211,5 +219,5 @@
 		animation-timing-function: ease-in-out;
 		animation-direction: alternate-reverse;
 		animation-duration: 20s;
-	}
+	} */
 </style>
