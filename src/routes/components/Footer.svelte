@@ -1,11 +1,17 @@
 <script lang="ts">
 	import Edit from './icons/Edit.svelte';
+	import Home from './icons/Home.svelte';
+	import Reset from './icons/Reset.svelte';
+	import Rest from './icons/Reset.svelte';
 	import Share from './icons/Share.svelte';
 
 	export let adding: boolean = false;
 	export let body: string[];
 	export let head: string;
-	let handleShare = () => {
+
+	export let handleReset = () => {};
+
+	const handleShare = () => {
 		const baseUrl = window.location.origin;
 		let catid = '';
 		let lastChar = '';
@@ -51,6 +57,14 @@
 				<button class=" w-14 h-14 rounded-lg hover:scale-105"><Edit /></button>
 			</a>
 		{/if} -->
-		<button on:click={handleShare} class=" w-14 h-14 rounded-lg hover:scale-105"><Share /></button>
+		<a href="/" class=" w-14 h-14 rounded-lg hover:scale-105">
+			<Home />
+		</a>
+		<button on:click={handleReset} class=" w-14 h-14 rounded-lg hover:scale-105">
+			<Reset />
+		</button>
+		<button on:click={handleShare} class=" w-14 h-14 rounded-lg hover:scale-105">
+			<Share />
+		</button>
 	</div>
 </div>

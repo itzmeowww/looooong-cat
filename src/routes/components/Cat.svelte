@@ -9,6 +9,8 @@
 
 	import { max_body_id, max_head_id } from './cats/catData';
 	import Background from './Background.svelte';
+	import Phone from './icons/Phone.svelte';
+	import Com from './icons/Com.svelte';
 
 	export let freeze: boolean = false;
 	export let adding: boolean = false;
@@ -18,7 +20,6 @@
 
 	let selected = 'A';
 
-	if (head == '') head = randomChar(max_head_id);
 	const addCatBlockFromSelected = (selected_value: string) => {
 		if (
 			'A'.charCodeAt(0) <= selected_value.charCodeAt(0) &&
@@ -34,6 +35,7 @@
 	};
 
 	$: {
+		if (head == '') head = randomChar(max_head_id);
 		// console.log(h + y, 112 + cats.length * 192);
 		if (!freeze && !adding)
 			while (h + y > 112 + body.length * 128 - threshold) {
@@ -83,6 +85,12 @@
 		}
 		scrollToId(newId, true);
 	};
+
+	const handleReset = () => {
+		body = [];
+		head = '';
+		y = 0;
+	};
 	let ScrollingElem: Element;
 </script>
 
@@ -127,7 +135,7 @@
 				<CatBody id={peice} />
 			{/each}
 		</div>
-		<Footer {head} {body} {adding} />
+		<Footer {head} {body} {adding} {handleReset} />
 		{#if adding}
 			<div
 				class="opacity-50 flex flex-row overflow-auto max-w-full w-48 "
@@ -158,12 +166,15 @@
 		{/if}
 	</main>
 	<div
-		class="w-screen h-screen flex flex-col items-center fixed -z-50 top-0"
-		style="background-color: #FCF0E8;"
+		class="w-screen h-screen flex flex-col items-center fixed -z-50 top-0 opacity-70"
+		style="background-color: #CCBAA9;"
 	>
 		<!-- bg-gradient-to-b from-blue-200 to-purple-300 -->
-		<div class="w-full bottom-0 absolute">
-			<Background />
+		<div class="w-full top-0 absolute hidden md:block">
+			<Com />
+		</div>
+		<div class="w-full top-0 absolute block md:hidden">
+			<Phone />
 		</div>
 		<!-- <div
 			class="h-6 w-32 ml-4 rounded-3xl top-16 bg-gradient-to-r from-white to-slate-100 absolute move-left-right"
