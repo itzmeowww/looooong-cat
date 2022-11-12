@@ -123,7 +123,7 @@
 		<div class="w-full max-w-xs px-4 mt-16">
 			<LooooongCat />
 		</div>
-		<div class="text-xl uppercase  mb-5 mt-2 font-pim" style="color: 603813;">
+		<div class="text-xl uppercase  mb-5 mt-2 font-pim" style="color: #603813;">
 			illustration by <a class="underline" href="https://www.instagram.com/partsofpim/"
 				>@partsofpim</a
 			>
