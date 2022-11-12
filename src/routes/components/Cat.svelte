@@ -8,9 +8,9 @@
 	export let head: string = '';
 
 	import { max_body_id, max_head_id } from './cats/catData';
-	import Background from './Background.svelte';
-	import Phone from './icons/Phone.svelte';
-	import Com from './icons/Com.svelte';
+	import Phone from './icons/Mobile.svelte';
+	import Com from './icons/Desktop.svelte';
+	import LooooongCat from './icons/LooooongCat.svelte';
 
 	export let freeze: boolean = false;
 	export let adding: boolean = false;
@@ -120,15 +120,15 @@
 
 <section class="w-screen">
 	<main class="w-full  min-h-screen max-w-lg mx-auto flex flex-col items-center bg-transparent">
-		<div class="mt-16 font-bold text-2xl text-center">LOOOOONG CAT</div>
-		<div class="text-sm text-slate-600 mb-8">
+		<div class="w-full max-w-xs px-4 mt-16">
+			<LooooongCat />
+		</div>
+		<div class="text-xl uppercase  mb-5 mt-2 font-pim" style="color: 603813;">
 			illustration by <a class="underline" href="https://www.instagram.com/partsofpim/"
 				>@partsofpim</a
 			>
 		</div>
-		<!-- <div class="fixed right-2 top-2">
-			{1 + body.length}
-		</div> -->
+
 		<div class="flex flex-col bg-red max-w-sm items-center ">
 			<CatHead id={head} />
 			{#each body as peice}
@@ -166,7 +166,7 @@
 		{/if}
 	</main>
 	<div
-		class="w-screen h-screen flex flex-col items-center fixed -z-50 top-0 opacity-70"
+		class="w-screen h-screen flex flex-col items-center fixed -z-50 top-0"
 		style="background-color: #CCBAA9;"
 	>
 		<!-- bg-gradient-to-b from-blue-200 to-purple-300 -->

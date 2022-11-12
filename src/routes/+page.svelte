@@ -1,3 +1,9 @@
+<script>
+	import Create from './components/icons/Create.svelte';
+	import Endless from './components/icons/Endless.svelte';
+	import LooooongCat from './components/icons/LooooongCat.svelte';
+</script>
+
 <svelte:head>
 	<title>LOOOOONG CAT</title>
 	<!-- Primary Meta Tags -->
@@ -19,36 +25,35 @@
 	<meta property="twitter:description" content="Have you ever seen a cat that LOOOOONG" />
 	<meta property="twitter:image" content="https://looooongcat.vercel.app/preview.svg" />
 </svelte:head>
-<section class="w-screen">
+<section class="w-screen" style="background-color: #F0E5DA;">
 	<main
-		class="w-full h-screen max-w-lg mx-auto flex flex-col items-center justify-center bg-transparent"
+		class="w-full h-screen max-w-lg mx-auto flex flex-col items-center justify-center bg-transparent relative"
 	>
-		<div class="mt-16 font-bold text-2xl text-center">LOOOOONG CAT</div>
-		<div class="text-sm text-slate-600 mb-8">
-			illustration by <a class="underline" href="https://www.instagram.com/partsofpim/"
-				>@partsofpim</a
-			>
+		<div class="absolute bottom-0 z-0 flex flex-col justify-center items-center">
+			<div class="w-full max-w-sm px-4">
+				<LooooongCat />
+			</div>
+			<div class="text-xl uppercase  mb-5 mt-2 font-pim " style="color: 603813;">
+				illustration by <a class="underline" href="https://www.instagram.com/partsofpim/"
+					>@partsofpim</a
+				>
+			</div>
+			<img class="ml-1 max-w-xs" src="door_mobile.png" alt="" />
 		</div>
-		<div class="flex gap-4 justify-center items-center font-medium">
-			<a href="/endless" class="bg-white px-2 py-1 rounded-md shadow-md hover:scale-105">Endless</a>
-			<a href="/create" class="bg-white px-2 py-1 rounded-md shadow-md hover:scale-105">Create</a>
+
+		<div class="flex flex-col gap-2 bottom-60  absolute z-10">
+			<a href="/endless" class="hover:scale-105 h-18 w-24 z-10">
+				<Endless />
+			</a>
+			<a href="/create" class="hover:scale-105 h-18 w-24 z-10">
+				<Create />
+			</a>
 		</div>
+		<!-- <div class="h-full relative">
+			<div class="absolute bottom-0 max-w-xs w-full" />
+			
+		</div> -->
 	</main>
-	<div class="w-screen h-screen fixed -z-50 top-0 bg-gradient-to-b from-blue-200 to-purple-300">
-		<div
-			class="h-6 w-32 ml-4 rounded-3xl top-16 bg-gradient-to-r from-white to-slate-100 absolute move-left-right"
-		/>
-
-		<div
-			class="h-8 w-24 mr-4 rounded-3xl top-36 bg-gradient-to-l from-white to-slate-100 absolute move-right-left"
-		/>
-
-		<div
-			class="h-7 w-12 ml-12 rounded-3xl top-72 bg-gradient-to-r from-white to-slate-100 absolute move-left-right-slow"
-		/>
-
-		<!-- <div class="w-10 h-48 bottom-0 left-12  bg-slate-400/60 rounded-sm absolute" /> -->
-	</div>
 </section>
 
 <style>
