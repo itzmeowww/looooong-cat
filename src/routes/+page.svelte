@@ -33,7 +33,7 @@
 			<div class="w-full max-w-sm px-4">
 				<LooooongCat />
 			</div>
-			<div class="text-xl uppercase  mb-5 mt-2 font-pim " style="color: #603813;">
+			<div class="text-2xl mb-5 mt-3 font-pim " style="color: #603813;">
 				illustration by <a class="underline" href="https://www.instagram.com/partsofpim/"
 					>@partsofpim</a
 				>
@@ -41,58 +41,13 @@
 			<img class="ml-1 max-w-xs" src="door_mobile.png" alt="" />
 		</div>
 
-		<div class="flex flex-col gap-2 bottom-60  absolute z-10">
-			<a href="/endless" class="hover:scale-105 h-18 w-24 z-10">
+		<div class="flex flex-col gap-2 bottom-[180px] absolute z-10">
+			<a href="/endless" class="hover:scale-105 h-28 w-36 z-10">
 				<Endless />
 			</a>
-			<a href="/create" class="hover:scale-105 h-18 w-24 z-10">
+			<a href="/create" class="hover:scale-105 h-28 w-36 z-10">
 				<Create />
 			</a>
 		</div>
-		<!-- <div class="h-full relative">
-			<div class="absolute bottom-0 max-w-xs w-full" />
-			
-		</div> -->
 	</main>
 </section>
-
-<style>
-	@keyframes move-l-r {
-		from {
-			left: -100px;
-		}
-		to {
-			left: 120vw;
-		}
-	}
-
-	@keyframes move-r-l {
-		from {
-			right: -100px;
-		}
-		to {
-			right: 120vw;
-		}
-	}
-	.move-left-right {
-		animation-name: move-l-r;
-		animation-iteration-count: infinite;
-		animation-timing-function: ease-in-out;
-		animation-direction: alternate-reverse;
-		animation-duration: 20s;
-	}
-	.move-left-right-slow {
-		animation-name: move-l-r;
-		animation-iteration-count: infinite;
-		animation-timing-function: ease-in-out;
-		animation-direction: alternate-reverse;
-		animation-duration: 25s;
-	}
-	.move-right-left {
-		animation-name: move-r-l;
-		animation-iteration-count: infinite;
-		animation-timing-function: ease-in-out;
-		animation-direction: alternate-reverse;
-		animation-duration: 20s;
-	}
-</style>
